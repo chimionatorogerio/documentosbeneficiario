@@ -17,4 +17,6 @@ public interface BeneficiarioAPI {
     @GetMapping
     @ResponseStatus(code = HttpStatus.OK)
     List<BeneficiarioListResponse> getTodosBeneficiarios();
+
+//    INICIA GET DOCS UM BENEFICIÁRIO
 }
