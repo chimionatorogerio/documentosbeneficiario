@@ -1,11 +1,13 @@
 package com.chimionato.beneficiariodocumento.beneficiario.application.api;
 
 import com.chimionato.beneficiariodocumento.beneficiario.application.service.BeneficiarioService;
+import com.chimionato.beneficiariodocumento.documento.domain.Documento;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
+import java.util.UUID;
 
 @RestController
 @Log4j2
@@ -28,5 +30,13 @@ public class BeneficiarioController implements BeneficiarioAPI {
         List<BeneficiarioListResponse> beneficarios = beneficiarioService.getTodosBeneficiarios();
         log.info("[FINALIZA]   BeneficiarioController - getTodosBeneficiarios");
         return beneficarios;
+    }
+
+    @Override
+    public List<Documento> getDocsUmBeneficiarioPeloId(UUID idBeneficiario) {
+        log.info("[inicia]     BeneficiarioController - getDocsUmBeneficiarioPeloId");
+        List<Documento> documentos = beneficiarioService.getDocsUmBeneficiarioPeloId(idBeneficiario);
+        log.info("[FINALIZA]   BeneficiarioController - getDocsUmBeneficiarioPeloId");
+        return documentos;
     }
 }
