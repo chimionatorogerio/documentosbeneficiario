@@ -9,5 +9,5 @@ import java.util.UUID;
 public interface BeneficiarioRepository {
     Beneficiario postBeneficiario(Beneficiario beneficiario);
     List<Beneficiario> getTodosBeneficiarios();
-    List<Documento> getDocsUmBeneficiarioPeloId(UUID idBeneficiario);
+    Beneficiario getUmBeneficiarioPeloid(UUID idBeneficiario);
 }

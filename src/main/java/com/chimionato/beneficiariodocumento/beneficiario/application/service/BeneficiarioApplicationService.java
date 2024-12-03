@@ -5,6 +5,7 @@ import com.chimionato.beneficiariodocumento.beneficiario.application.api.Benefic
 import com.chimionato.beneficiariodocumento.beneficiario.application.api.BeneficiarioResponse;
 import com.chimionato.beneficiariodocumento.beneficiario.application.repository.BeneficiarioRepository;
 import com.chimionato.beneficiariodocumento.beneficiario.domain.Beneficiario;
+import com.chimionato.beneficiariodocumento.documento.application.api.DocumentoListResponse;
 import com.chimionato.beneficiariodocumento.documento.domain.Documento;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
@@ -39,10 +40,11 @@ public class BeneficiarioApplicationService implements BeneficiarioService {
     }
 
     @Override
-    public List<Documento> getDocsUmBeneficiarioPeloId(UUID idBeneficiario) {
+    public List<DocumentoListResponse> getDocsUmBeneficiarioPeloId(UUID idBeneficiario) {
         log.info("[inicia]     BeneficiarioApplicationService - getDocsUmBeneficiarioPeloId");
-        List<Documento> documentos = beneficiarioRepository.getDocsUmBeneficiarioPeloId(idBeneficiario);
+        Beneficiario beneficiario = beneficiarioRepository.getUmBeneficiarioPeloid(idBeneficiario);
+        List<Documento> documentos = beneficiario.getDocumentos();
         log.info("[FINALIZA]   BeneficiarioApplicationService - getDocsUmBeneficiarioPeloId");
-        return documentos;
+        return DocumentoListResponse.converte(documentos);
     }
 }
