@@ -30,4 +30,6 @@ public class BeneficiarioInfraRepository implements BeneficiarioRepository {
         log.info("[FINALIZA]   BeneficiarioInfraRepository - getTodosBeneficiarios");
         return todosBeneficiarios;
     }
+
+    // finalizado getTodos
 }
