@@ -1,5 +1,6 @@
 package com.chimionato.beneficiariodocumento.beneficiario.application.api;
 
+import com.chimionato.beneficiariodocumento.documento.domain.Documento;
 import jakarta.validation.Valid;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
@@ -19,7 +20,7 @@ public interface BeneficiarioAPI {
     @ResponseStatus(code = HttpStatus.OK)
     List<BeneficiarioListResponse> getTodosBeneficiarios();
 
-    @GetMapping(value = "/{idBeneficiario}")
+    @GetMapping(value = "/{idBeneficiario}/documentos")
     @ResponseStatus(code = HttpStatus.OK)
-    BeneficiarioDetalhadoResponse getDocsUmBeneficiarioPeloId(@PathVariable UUID idBeneficiario);
+        public List<Documento> getDocsUmBeneficiarioPeloId(@PathVariable UUID idBeneficiario);
 }
