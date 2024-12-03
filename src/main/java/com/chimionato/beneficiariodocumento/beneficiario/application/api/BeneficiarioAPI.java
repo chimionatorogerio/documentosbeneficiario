@@ -24,4 +24,6 @@ public interface BeneficiarioAPI {
     @GetMapping(value = "/{idBeneficiario}/documentos")
     @ResponseStatus(code = HttpStatus.OK)
     List<DocumentoListResponse> getDocsUmBeneficiarioPeloId(@PathVariable UUID idBeneficiario);
+
+//    inicia patch
 }
