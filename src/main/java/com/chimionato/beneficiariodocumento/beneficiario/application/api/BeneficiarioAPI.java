@@ -25,5 +25,8 @@ public interface BeneficiarioAPI {
     @ResponseStatus(code = HttpStatus.OK)
     List<DocumentoListResponse> getDocsUmBeneficiarioPeloId(@PathVariable UUID idBeneficiario);
 
-//    inicia patch
+    @PatchMapping(value = "/{idBeneficiario}")
+    @ResponseStatus(code = HttpStatus.NO_CONTENT)
+    void patchAlteraBeneficiario(@PathVariable UUID idBeneficiario,
+                                @Valid @RequestBody BeneficiarioAlteracaoRequest beneficiarioAlteracaoRequest);
 }
