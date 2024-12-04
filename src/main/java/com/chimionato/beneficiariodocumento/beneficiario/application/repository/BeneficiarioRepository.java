@@ -10,4 +10,5 @@ public interface BeneficiarioRepository {
     Beneficiario postBeneficiario(Beneficiario beneficiario);
     List<Beneficiario> getTodosBeneficiarios();
     Beneficiario getUmBeneficiarioPeloid(UUID idBeneficiario);
+    void deletaUmBeneficiarioPeloId(Beneficiario beneficiario);
 }
