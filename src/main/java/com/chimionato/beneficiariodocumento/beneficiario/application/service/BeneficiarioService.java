@@ -16,4 +16,5 @@ public interface BeneficiarioService {
     List<BeneficiarioListResponse> getTodosBeneficiarios();
     List<DocumentoListResponse> getDocsUmBeneficiarioPeloId(UUID idBeneficiario);
     void patchAlteraBeneficiario(UUID idBeneficiario, @Valid BeneficiarioAlteracaoRequest beneficiarioAlteracaoRequest);
+    void deletaUmBeneficiarioPeloId(UUID idBeneficiario);
 }
