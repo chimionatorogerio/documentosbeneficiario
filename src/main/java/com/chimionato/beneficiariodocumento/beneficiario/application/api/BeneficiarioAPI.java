@@ -30,5 +30,7 @@ public interface BeneficiarioAPI {
     void patchAlteraBeneficiario(@PathVariable UUID idBeneficiario,
                                 @Valid @RequestBody BeneficiarioAlteracaoRequest beneficiarioAlteracaoRequest);
 
-//inicia implantação delete
+    @DeleteMapping(value = "/{idBeneficiario}")
+    @ResponseStatus(code = HttpStatus.NO_CONTENT)
+    void deletaUmBeneficiarioPeloId(@PathVariable UUID idBeneficiario);
 }
