@@ -1,5 +1,6 @@
 package com.chimionato.beneficiariodocumento.beneficiario.application.service;
 
+import com.chimionato.beneficiariodocumento.beneficiario.application.api.BeneficiarioAlteracaoRequest;
 import com.chimionato.beneficiariodocumento.beneficiario.application.api.BeneficiarioListResponse;
 import com.chimionato.beneficiariodocumento.beneficiario.application.api.BeneficiarioRequest;
 import com.chimionato.beneficiariodocumento.beneficiario.application.api.BeneficiarioResponse;
@@ -46,5 +47,16 @@ public class BeneficiarioApplicationService implements BeneficiarioService {
         List<Documento> documentos = beneficiario.getDocumentos();
         log.info("[FINALIZA]   BeneficiarioApplicationService - getDocsUmBeneficiarioPeloId");
         return DocumentoListResponse.converte(documentos);
+    }
+
+    @Override
+    public void patchAlteraBeneficiario(
+            UUID idBeneficiario, BeneficiarioAlteracaoRequest beneficiarioAlteracaoRequest) {
+        log.info("[inicia]     BeneficiarioApplicationService - patchAlteraBeneficiario");
+        log.info("[idBeneficiario] {}", idBeneficiario);
+        Beneficiario beneficiario = beneficiarioRepository.getUmBeneficiarioPeloid(idBeneficiario);
+        beneficiario.patchAlteraBeneficiario(beneficiarioAlteracaoRequest);
+        beneficiarioRepository.postBeneficiario(beneficiario);
+        log.info("[FINALIZA]   BeneficiarioApplicationService - patchAlteraBeneficiario");
     }
 }
