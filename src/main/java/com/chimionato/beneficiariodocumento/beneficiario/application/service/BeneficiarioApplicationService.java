@@ -60,4 +60,5 @@ public class BeneficiarioApplicationService implements BeneficiarioService {
         beneficiarioRepository.postBeneficiario(beneficiario);
         log.info("[FINALIZA]   BeneficiarioApplicationService - patchAlteraBeneficiario");
     }
+    //finalizada implantação do patch
 }
