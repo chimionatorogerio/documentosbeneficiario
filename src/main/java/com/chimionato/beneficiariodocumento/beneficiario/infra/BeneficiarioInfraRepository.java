@@ -44,4 +44,11 @@ public class BeneficiarioInfraRepository implements BeneficiarioRepository {
         log.info("[FINALIZA]   BeneficiarioInfraRepository - getUmBeneficiarioPeloid");
         return beneficiario;
     }
+
+    @Override
+    public void deletaUmBeneficiarioPeloId(Beneficiario beneficiario) {
+        log.info("[inicia]     BeneficiarioInfraRepository - deletaUmBeneficiarioPeloId");
+        beneficiarioSpringDataJPARepository.delete(beneficiario);
+        log.info("[FINALIZA]   BeneficiarioInfraRepository - deletaUmBeneficiarioPeloId");
+    }
 }
