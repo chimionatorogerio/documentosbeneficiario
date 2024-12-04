@@ -8,6 +8,7 @@ import com.chimionato.beneficiariodocumento.beneficiario.application.repository.
 import com.chimionato.beneficiariodocumento.beneficiario.domain.Beneficiario;
 import com.chimionato.beneficiariodocumento.documento.application.api.DocumentoListResponse;
 import com.chimionato.beneficiariodocumento.documento.domain.Documento;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.stereotype.Service;
@@ -51,7 +52,7 @@ public class BeneficiarioApplicationService implements BeneficiarioService {
 
     @Override
     public void patchAlteraBeneficiario(
-            UUID idBeneficiario, BeneficiarioAlteracaoRequest beneficiarioAlteracaoRequest) {
+            UUID idBeneficiario, @Valid BeneficiarioAlteracaoRequest beneficiarioAlteracaoRequest) {
         log.info("[inicia]     BeneficiarioApplicationService - patchAlteraBeneficiario");
         log.info("[idBeneficiario] {}", idBeneficiario);
         Beneficiario beneficiario = beneficiarioRepository.getUmBeneficiarioPeloid(idBeneficiario);
